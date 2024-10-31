@@ -152,15 +152,20 @@
     <div class="love-message">I LOVE YOU!</div>
 
    
-    <button onclick="document.getElementById('background-music').play(); this.style.display='none';">
-        Click to Start the Music
-    </button>
-    
-    <audio id="background-music" loop>
-        <source src="https://github.com/pip143/Music/raw/refs/heads/main/One%20Direction%20-%20Perfect%20(Official%20Video)%20(%20256kbps%20cbr%20).mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    
+    <audio id="background-music" autoplay loop muted>
+    <source src="https://github.com/pip143/Music/raw/refs/heads/main/One%20Direction%20-%20Perfect%20(Official%20Video)%20(%20256kbps%20cbr%20).mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<script>
+    window.addEventListener('load', () => {
+        const audio = document.getElementById("background-music");
+        audio.muted = false;  // Unmute the audio after autoplay
+        audio.play().catch(error => {
+            console.log("Autoplay may be blocked due to browser policy.");
+        });
+    });
+   </script> 
     
 </body>
 </html>
