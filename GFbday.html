@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAPPY BIRTHDAY!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #030521; /* Darker blue background */
+            font-family: 'Georgia', serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 6vw; /* Responsive font size */
+            color: #ffffff; /* White text */
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            position: relative;
+            animation: colorChange 3s infinite;
+        }
+
+        @keyframes colorChange {
+            0% { color: #ffffff; }
+            50% { color: #f5f5f5; }
+            100% { color: #ffffff; }
+        }
+
+        /* Big Heart in the Background */
+        .big-heart {
+            position: absolute;
+            width: 300px; /* Width for the heart */
+            height: 300px; /* Height for the heart */
+            background-color: #ff0000; /* Brighter red heart */
+            transform: rotate(-45deg);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            z-index: -1;
+            opacity: 1; /* Reduced transparency */
+            animation: fadeInBigHeart 5s forwards;
+        }
+
+        .big-heart::before, .big-heart::after {
+            content: "";
+            position: absolute;
+            width: 300px; /* Width for the heart */
+            height: 300px; /* Height for the heart */
+            background-color: #ff0000; /* Consistent red color */
+            border-radius: 50%; /* Rounded edges for heart shape */
+        }
+
+        .big-heart::before {
+            top: -150px; /* Position for the left lobe */
+            left: 0;
+        }
+
+        .big-heart::after {
+            left: 150px; /* Position for the right lobe */
+            top: 0;
+        }
+
+        /* Heart Balloons */
+        .heart {
+            position: absolute;
+            width: 50px; /* Fixed width for heart shape */
+            height: 50px; /* Fixed height for heart shape */
+            background-color: #ff4c4c; /* Brighter red color */
+            transform: rotate(-45deg);
+            bottom: -100px;
+            animation: floatUp 6s ease-in-out infinite;
+            animation-delay: calc(var(--delay) * 1s); /* Variable delay */
+            left: calc(var(--position) * 1%); /* Random position */
+        }
+
+        .heart::before, .heart::after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: inherit; /* Inherit background color */
+            border-radius: 50%; /* Rounded edges for heart shape */
+        }
+
+        .heart::before {
+            top: -25px; /* Adjusted for heart shape */
+            left: 0;
+        }
+
+        .heart::after {
+            left: 25px; /* Adjusted for heart shape */
+            top: 0;
+        }
+
+        /* Floating animation for hearts */
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(-45deg); /* Maintain rotation for heart shape */
+                opacity: 0.8;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-800px) rotate(-45deg); /* Maintain rotation for heart shape */
+                opacity: 0;
+            }
+        }
+
+        /* 'I LOVE YOU' text */
+        .love-message {
+            font-size: 4vw; /* Responsive font size */
+            color: #ffffff; /* White color */
+            margin-top: 20px;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeInText 5s forwards;
+            animation-delay: 3s;
+        }
+
+        @keyframes fadeInText {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        
+    </style>
+</head>
+<body>
+
+    <h1>HAPPY BIRTHDAY!</h1>
+    <h1>MY BEAUTIFUL KATE</h1>
+    <!-- Big Heart in Background -->
+    <div class="big-heart"></div>
+
+    <!-- Heart Balloons -->
+    <div class="heart" style="--delay: 0; --position: 10;"></div>
+    <div class="heart" style="--delay: 1; --position: 30;"></div>
+    <div class="heart" style="--delay: 2; --position: 50;"></div>
+    <div class="heart" style="--delay: 3; --position: 70;"></div>
+    <div class="heart" style="--delay: 4; --position: 90;"></div>
+
+    <!-- Love Message -->
+    <div class="love-message">I LOVE YOU!</div>
+
+   
+    <button onclick="document.getElementById('background-music').play(); this.style.display='none';">
+        Click to Start the Music
+    </button>
+    
+    <audio id="background-music" loop>
+        <source src="https://github.com/pip143/Music/raw/refs/heads/main/One%20Direction%20-%20Perfect%20(Official%20Video)%20(%20256kbps%20cbr%20).mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    
+</body>
+</html>
